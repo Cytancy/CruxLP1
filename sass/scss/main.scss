@@ -1,0 +1,451 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "rcm-utils";
+
+$contentMaxWidth: 1200px;
+$contentHorizontalPadding: 24px;
+$widthBreak: 1248px;
+
+html {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	height: 100%;
+	line-height: 1.42857143;
+	overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+
+	*, *:after, *:before {
+		@include box-sizing(border-box);
+	}
+}
+
+.clp-main {
+	@include align-items(center);
+	@include display-flex;
+	@include flex-direction(column);
+
+	width: 100%;
+	position: relative;
+	z-index: 5;
+}
+
+.clp-background {
+	background-color: #D6D6D6;
+	left: -9999px;
+	margin: auto;
+	position: absolute;
+	right: -9999px;
+	top: 0;
+	width: 102.5%;
+	z-index: 0;
+}
+
+.clp-navbar {
+	@include display-flex;
+	@include justify-content(center);
+	@include flex(0 0 auto);
+
+	@include box-shadow(0 4px 0 0 hsla(207, 100%, 19%, .25));
+
+	border-bottom: 8px solid #B0C3D3;
+	margin-top: calc(6px + .75%);
+	background-color: hsla(0, 0%, 100%, .85);
+	height: 9.5vw;
+	max-height: 128px;
+	min-height: 94px;
+	padding: 0 $contentHorizontalPadding;
+	position: relative;
+	width: 100%;
+
+	@media screen and (min-width: $widthBreak) {
+		margin-top: 14px;
+	}
+
+	&-content {
+		@include display-flex;
+		@include align-items(center);
+
+		max-width: $contentMaxWidth;
+		padding: 16px 0;
+		width: 100%;
+	}
+
+	&-logo {
+		@include flex(0 0 auto);
+
+		height: 100%;
+		position: relative;
+		margin-right: 16px;
+	}
+
+	&-login-button {
+		@include align-items(center);
+		@include display-flex;
+
+		background-color: #E4835D;
+		border-bottom: 6px solid #667385;
+		color: #FFF;
+		cursor: pointer;
+		font-family: 'acumin-pro', sans-serif;
+		font-size: 18px;
+		margin-left: auto;
+		max-height: 100%;
+		padding: 12px 32px;
+	}
+}
+
+
+.clp-tagline {
+	@include display-flex;
+	@include flex-direction(column);
+	@include align-items(center);
+
+	color: hsla(0, 0, 100%, .85);
+	font-family: 'acumin-pro', sans-serif;
+	font-weight: 600;
+	max-width: $contentMaxWidth;
+	padding: 0 $contentHorizontalPadding;
+	margin: calc(16px + 6.5%) 0;
+	position: relative;
+	text-shadow: 4px 4px hsla(207, 63%, 27%, 0.28);
+	width: 100%;
+
+	&-line-a, &-line-b {
+		@include flex(0 0 auto);
+
+		
+		position: relative;
+	}
+
+	@media screen and (min-width: $widthBreak) {
+		margin: 120px 0;
+	}
+
+	&-line-a {
+		font-size: 10vw;
+		letter-spacing: -.275vw;
+		line-height: 7.75vw;
+
+		@media screen and (min-width: $widthBreak) {
+			font-size: 124px;
+			letter-spacing: -4px;
+			line-height: 96px;
+		}
+	}
+
+	&-line-b {
+		font-size: 11vw;
+		letter-spacing: -.35vw;
+		line-height: 8.25vw;
+
+		@media screen and (min-width: $widthBreak) {
+			font-size: 136px;
+			letter-spacing: -4.25px;
+			line-height: 108px;
+		}
+	}
+}
+
+.clp-info {
+	@include display-flex;
+	@include justify-content(center);
+	@include flex(0 0 auto);
+
+	margin-top: -2px;
+	background-color: #19496F;
+	padding: 0 $contentHorizontalPadding;
+	position: relative;
+	width: 100%;
+
+	&-content {
+		@include display-flex;
+		@include flex(0 0 auto);
+		@include flex-direction(column);
+
+		max-width: $contentMaxWidth;
+		padding: 62px 0;
+		width: 100%;
+	}
+
+	&-points {
+		@include display-flex;
+		@include flex(0 0 auto);
+		@include flex-direction(column);
+
+		position: relative;
+		width: 100%;
+
+		&-line {
+			position: absolute;
+			left: 5px;
+			top: 12px;
+			height: calc(100% - 12px);
+			width: 0px;
+			border-left: 2px dashed hsla(214, 28%, 60%, 1);
+			z-index: 0;
+		}
+	}
+
+	&-point {
+		@include display-flex;
+		@include flex(0 0 auto);
+
+		position: relative;
+		margin-bottom: 48px;
+		width: 100%;
+		z-index: 5;
+
+		&-dot {
+			@include flex(0 0 auto);
+			@include border-radius(50%);
+
+			position: relative;
+			border: 2px solid #8D9BA6;
+			background-color: #19496F;
+			height: 12px;
+			width: 12px;
+			margin-top: 10px;
+		}
+
+		&-content {
+			@include flex(1 1 auto);
+			@include test-every-font;
+
+			margin-left: 32px;
+			font-family: 'acumin-pro', sans-serif;
+			position: relative;
+			font-size: 23px;
+		}
+
+
+		&-q-marker {
+			display: inline;
+			color: #6292b8;
+			font-weight: 600;
+		}
+
+		&-text {
+			color: #FFF;
+			font-weight: 300;
+			display: inline;
+		}
+	}
+
+	&-end-point {
+		@include display-flex;
+		@include flex(0 0 auto);
+
+		position: relative;
+		width: 100%;
+		z-index: 5;
+
+		&-dot {
+			@include flex(0 0 auto);
+			@include border-radius(50%);
+
+			position: relative;
+			border: 2px solid #8D9BA6;
+			background-color: #19496F;
+			height: 12px;
+			width: 12px;
+			margin-top: 10px;
+			z-index: 5;
+		}
+
+		&-cover {
+			width: 20px;
+			left: 0;
+			top: 20px;
+			height: calc(100% - 20px);
+			position: absolute;
+			background-color: #19496F;
+			z-index: 4;
+		}
+
+		&-content {
+			@include flex(1 1 auto);
+			@include test-every-font;
+
+			margin-left: 32px;
+			font-family: 'acumin-pro', sans-serif;
+			position: relative;
+			font-size: 28px;
+		}
+
+		&-text {
+			color: #FFF;
+			font-weight: 300;
+			display: inline;
+
+			&-focus {
+				display: inline;
+				font-weight: 500;
+			}
+		}
+	}
+
+	&-signup-form {
+		@include display-flex;
+		@include flex(0 0 auto);
+
+		margin-top: 48px;
+		height: 64px;
+		width: 100%;
+
+		&-input, &-button {
+			height: 100%;
+			position: relative;
+		}
+
+		&-input {
+			@include flex(1 1 auto);
+
+			background-color: #FFF;
+			border: none;
+			color: hsl(0, 0%, 30%);
+			font-family: 'acumin-pro', sans-serif;
+			font-size: 24px;
+			outline: none;
+			padding: 0 22px;
+
+			&::placeholder {
+				opacity: .4;
+			}
+		}
+
+		&-button {
+			@include align-items(center);
+			@include display-flex;
+			@include flex(0 0 auto);
+			@include test-every-font;
+
+			background-color: #DF4000;
+			color: #FFF;
+			cursor: pointer;
+			font-family: 'acumin-pro', sans-serif;
+			font-size: 24px;
+			margin-left: 10px;
+			padding: 0 46px;
+		}
+	}
+}
+
+.clp-filler {
+	@include flex(0 0 auto);
+
+	height: 246px;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	&-background {
+		background-color: #D6D6D6;
+		left: -9999px;
+		margin: auto;
+		position: absolute;
+		right: -9999px;
+		bottom: 0;
+		width: 102.5%;
+		z-index: 0;
+	}
+
+	&-stripe {
+		left: 0;
+		position: absolute;
+		width: 100%;
+		z-index: 5;
+
+		&-a {
+			background-color: #D3EEFA;
+			height: 14px;
+			top: 0;
+		}
+
+		&-b {
+			background-color: rgba(#00355F, .34);
+			height: 42px;
+			top: 14px;
+		}
+
+		&-c {
+			background-color: hsla(17, 94%, 72%, 0.5);
+			height: 18px;
+			bottom: 32px;
+		}
+
+		&-d {
+			background-color: rgba(#00355F, .34);
+			height: 20px;
+			bottom: 20px;
+		}
+
+		&-e {
+			background-color: hsla(198, 90%, 62%, 0.5);
+			height: 32px;
+			bottom: 0;
+		}
+
+		&-f {
+			background-color: #FFF;
+			height: 20px;
+			bottom: 0;
+			z-index: 4;
+		}
+	}
+}
+
+.clp-footer {
+	@include display-flex;
+	@include flex(0 0 auto);
+	@include justify-content(center);
+
+	background-color: #222222;
+	height: 248px;
+	padding: 0 $contentHorizontalPadding;
+	position: relative;
+	width: 100%;
+
+	&-content {
+		@include display-flex;
+		@include flex-direction(column);
+		@include justify-content(center);
+
+		max-width: $contentMaxWidth;
+		padding: 16px 0;
+		width: 100%;
+	}
+
+	&-social, &-message {
+		@include flex(0 0 auto);
+
+		position: relative;
+		width: 100%;
+	}
+
+	&-social {
+		@include display-flex;
+		@include align-items(center);
+
+		margin-bottom: 24px;
+
+		&-button {
+			color: rgba(255, 255, 255, .45);
+			margin-right: 24px;
+			font-size: 24px;
+		}
+	}
+
+	&-message {
+		@include test-every-font;
+
+		font-size: 18px;
+		color: rgba(255, 255, 255, .35);
+		font-weight: 300;
+	}
+}
